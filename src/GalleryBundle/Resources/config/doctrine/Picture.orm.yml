@@ -1,0 +1,47 @@
+GalleryBundle\Entity\Picture:
+    type: entity
+    table: Picture
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        filename:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        category:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        timestamp:
+            type: datetime
+            nullable: false
+            comment: ''
+        userid:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+    lifecycleCallbacks: {  }

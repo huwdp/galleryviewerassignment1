@@ -1,0 +1,30 @@
+{% extends "GalleryBundle::Master/template.html.twig" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+        .picture_box { width: 350px; height: 350px; float: left; background: #CCC; margin: 10px;}
+        .clear { clear: both; }
+    </style>
+{% endblock %}
+
+{% block nav %}
+	{% for key,value in menu %}
+		<li><a href="{{ value }}">{{ key }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+	{% for picture in pictures %}
+		<div class="picture_box">
+		<img width="300px" height="300px" src="{{ asset(picture.filename, absolute=true) }}" alt="{{ picture.name|e }}" />
+		<br />
+		<a href="{{ picture_link|e }}{{ picture.id|e }}" >{{ picture.name|e }} link</a>
+		<p>{{ picture.description|e }}</p>
+		</div>
+	{% endfor %}
+	<div class="clear"></div>
+{% endblock %}

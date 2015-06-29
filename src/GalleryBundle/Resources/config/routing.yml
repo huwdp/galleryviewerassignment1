@@ -1,0 +1,36 @@
+gallery_homepage:
+    path:     /gallery
+    defaults: { _controller: GalleryBundle:Default:index }
+
+gallery_picture:
+    path:     /gallery/picture/{id}
+    defaults: { _controller: GalleryBundle:Default:picture }
+
+
+gallery_admin_homepage:
+    path:      /gallery/admin/
+    defaults: { _controller: GalleryBundle:PictureAdmin:index }
+
+gallery_admin_login:
+   path: /gallery/admin/login
+   defaults: { _controller: GalleryBundle:Admin:login }
+   
+gallery_admin_register:
+   path: /gallery/admin/register
+   defaults: { _controller: GalleryBundle:Admin:register }
+
+gallery_admin_logout:
+   path: /gallery/admin/logout
+   defaults: { _controller: GalleryBundle:Admin:logout }
+
+gallery_admin_add_picture:
+    path: /gallery/admin/add
+    defaults: { _controller: GalleryBundle:PictureAdmin:addPicture }
+
+gallery_admin_edit_picture:
+    path: /gallery/admin/edit/{id}
+    defaults: { _controller: GalleryBundle:PictureAdmin:editPicture }
+
+gallery_admin_remove_picture:
+    path: /gallery/admin/remove/{id}
+    defaults: { _controller: GalleryBundle:PictureAdmin:removePicture }

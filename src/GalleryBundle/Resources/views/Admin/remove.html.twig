@@ -1,0 +1,23 @@
+{% extends "GalleryBundle::Master/template.html.twig" %}
+
+{% block title %}Remove{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block nav %}
+	{% for key,value in menu %}
+		<li><a href="{{ value }}">{{ key }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+	<h1>Image removed</h1>
+	
+	
+	
+{% endblock %}

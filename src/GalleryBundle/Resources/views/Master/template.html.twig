@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+    <title>{% block title %}{% endblock %} - Gallery</title>
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+{% endblock %}
+</head>
+	<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Gallery</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">	
+				<ul class="nav navbar-nav">		  
+					{% block nav %}
+					{% endblock %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+    <div class="container">
+		
+	{# Thanks to http://www.lucas.courot.com/render-all-flash-messages-in-twig.html and  http://symfony.com/doc/master/book/controller.html#flash-messages 
+		Accessed: 28/05/2015
+	#}
+		
+	{% for label, flashes in app.session.flashbag.all %}
+    {% for message in flashes %}
+        <div class="alert alert-{{ label }}" role="alert">
+            {{ message }}
+        </div>
+		{% endfor %}
+	{% endfor %}
+	
+	
+	{% block content %}
+	{% endblock %}
+		<div id="footer">
+            {% block footer %}
+                &copy; Huw Pritchard 2015.
+            {% endblock %}
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+

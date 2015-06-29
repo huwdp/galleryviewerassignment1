@@ -1,0 +1,35 @@
+{% extends "GalleryBundle::Master/template.html.twig" %}
+
+{% block title %}Admin Homepage{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block nav %}
+	{% for key,value in menu %}
+		<li><a href="{{ value }}">{{ key }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+	<h1>List of pictures</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Buttons</th>
+		</tr>
+	{% for picture in pictures %}
+		<tr>
+			<td>{{ picture.name|e }}</td>
+			<td>
+				<a class="btn btn-default" href="edit/{{ picture.id|e }}" role="button">Edit</a>
+				<a class="btn btn-default" href="remove/{{ picture.id|e }}" role="button">Delete</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

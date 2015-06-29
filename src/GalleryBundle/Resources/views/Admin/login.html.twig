@@ -1,0 +1,26 @@
+{% extends "GalleryBundle::Master/template.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block nav %}
+	{% for key,value in menu %}
+		<li><a href="{{ value }}">{{ key }}</a></li>
+	{% endfor %}
+{% endblock %}
+
+{% block content %}
+	<h1>Login</h1>
+	
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+	
+{% endblock %}
